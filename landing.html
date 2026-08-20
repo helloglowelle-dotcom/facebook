@@ -1,0 +1,1437 @@
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --forest: #174A3A;
+  --glow: #4F8A6D;
+  --sage: #DCEADF;
+  --white: #FFFFFF;
+  --warm: #FBFAF7;
+  --charcoal: #20302A;
+  --gold: #B79A6B;
+  --sage-40: rgba(220,234,223,0.4);
+  --glass: rgba(255,255,255,0.72);
+  --glass-border: rgba(23,74,58,0.08);
+  --shadow-sm: 0 1px 3px rgba(23,74,58,0.04), 0 1px 2px rgba(23,74,58,0.03);
+  --shadow-md: 0 4px 16px rgba(23,74,58,0.06), 0 2px 6px rgba(23,74,58,0.04);
+  --shadow-lg: 0 12px 40px rgba(23,74,58,0.08), 0 4px 12px rgba(23,74,58,0.04);
+  --shadow-xl: 0 24px 60px rgba(23,74,58,0.1), 0 8px 20px rgba(23,74,58,0.05);
+  --radius: 20px;
+  --radius-sm: 12px;
+  --radius-xs: 8px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--charcoal);
+  background: var(--warm);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.section {
+  padding: 80px 24px;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .section { padding: 56px 20px; }
+}
+
+.label {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--glow);
+}
+
+.label-gold {
+  color: var(--gold);
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 36px;
+  background: var(--forest);
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(23,74,58,0.2);
+}
+
+.btn-primary:hover {
+  background: #1a5a47;
+  box-shadow: 0 8px 28px rgba(23,74,58,0.3);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: var(--glass);
+  color: var(--forest);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border: 1.5px solid var(--glass-border);
+  border-radius: 60px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.btn-secondary:hover {
+  background: var(--sage);
+  border-color: var(--glow);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 24px 80px;
+  background: linear-gradient(180deg, var(--white) 0%, var(--warm) 50%, var(--sage-40) 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(220,234,223,0.5) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -100px;
+  left: -150px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(183,154,107,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 720px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.hero-logo svg {
+  width: 28px;
+  height: 34px;
+}
+
+.hero-logo span {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--forest);
+}
+
+.hero h1 {
+  font-size: clamp(36px, 6vw, 56px);
+  color: var(--forest);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--glow);
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2.2vw, 19px);
+  color: var(--charcoal);
+  opacity: 0.75;
+  max-width: 520px;
+  margin: 0 auto 16px;
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.hero-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 32px;
+}
+
+.hero-price-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--forest);
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-note {
+  font-size: 12px;
+  color: var(--charcoal);
+  opacity: 0.45;
+  margin-top: 4px;
+}
+
+/* ============================================
+   FLOATING CARD
+   ============================================ */
+.card {
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.card-white {
+  background: var(--white);
+  border: 1px solid rgba(23,74,58,0.06);
+}
+
+/* ============================================
+   PRODUCT MOCKUP SECTION
+   ============================================ */
+.mockup-section {
+  background: var(--white);
+  padding: 80px 24px;
+}
+
+.mockup-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  max-width: 960px;
+  margin: 40px auto 0;
+}
+
+.mockup-card {
+  background: var(--warm);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 28px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.mockup-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.mockup-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  background: var(--sage);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mockup-icon svg {
+  width: 22px;
+  height: 22px;
+  color: var(--forest);
+}
+
+.mockup-card h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--forest);
+  margin-bottom: 6px;
+}
+
+.mockup-card p {
+  font-size: 13px;
+  color: var(--charcoal);
+  opacity: 0.6;
+  line-height: 1.5;
+}
+
+/* ============================================
+   PROBLEM SECTION
+   ============================================ */
+.problem-section {
+  background: var(--warm);
+}
+
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .problem-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+.problem-list {
+  list-style: none;
+}
+
+.problem-list li {
+  position: relative;
+  padding: 14px 0 14px 28px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--charcoal);
+  opacity: 0.8;
+  border-bottom: 1px solid rgba(23,74,58,0.06);
+}
+
+.problem-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 22px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sage);
+  border: 2px solid var(--glow);
+}
+
+/* ============================================
+   FOUR LAYERS SECTION
+   ============================================ */
+.layers-section {
+  background: var(--white);
+}
+
+.layers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  max-width: 960px;
+  margin: 48px auto 0;
+}
+
+@media (max-width: 900px) {
+  .layers-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 480px) {
+  .layers-grid { grid-template-columns: 1fr; }
+}
+
+.layer-card {
+  background: var(--warm);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  padding: 32px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.layer-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.layer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.layer-card:nth-child(1)::before { background: var(--forest); }
+.layer-card:nth-child(2)::before { background: var(--glow); }
+.layer-card:nth-child(3)::before { background: var(--gold); }
+.layer-card:nth-child(4)::before { background: var(--sage); border-top: 1px solid var(--glow); }
+
+.layer-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--sage);
+  margin-bottom: 8px;
+}
+
+.layer-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin-bottom: 10px;
+}
+
+.layer-card p {
+  font-size: 13.5px;
+  color: var(--charcoal);
+  opacity: 0.7;
+  line-height: 1.55;
+}
+
+/* ============================================
+   RESCUE SECTION
+   ============================================ */
+.rescue-section {
+  background: linear-gradient(135deg, var(--forest) 0%, #1a5a47 100%);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.rescue-section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(79,138,109,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.rescue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  max-width: 800px;
+  margin: 40px auto 0;
+}
+
+.rescue-item {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  padding: 24px 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.rescue-item h4 {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sage);
+  margin-bottom: 6px;
+}
+
+.rescue-item p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.5;
+}
+
+/* ============================================
+   WHAT YOU RECEIVE
+   ============================================ */
+.receive-section {
+  background: var(--warm);
+}
+
+.receive-list {
+  max-width: 640px;
+  margin: 40px auto 0;
+  list-style: none;
+}
+
+.receive-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(23,74,58,0.06);
+}
+
+.receive-check {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--sage);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2px;
+}
+
+.receive-check svg {
+  width: 12px;
+  height: 12px;
+  color: var(--forest);
+}
+
+.receive-list li span {
+  font-size: 15px;
+  color: var(--charcoal);
+  line-height: 1.5;
+}
+
+/* ============================================
+   NOTION COMPANION
+   ============================================ */
+.notion-section {
+  background: var(--white);
+}
+
+.notion-card {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--warm);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 40px;
+  text-align: center;
+}
+
+.notion-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: var(--sage);
+  border-radius: 60px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--forest);
+  margin-bottom: 20px;
+}
+
+/* ============================================
+   COMPARISON SECTION
+   ============================================ */
+.compare-section {
+  background: var(--warm);
+}
+
+.compare-table {
+  max-width: 720px;
+  margin: 40px auto 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.compare-header {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  background: var(--forest);
+  padding: 16px 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+.compare-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  padding: 14px 24px;
+  border-bottom: 1px solid rgba(23,74,58,0.06);
+  font-size: 14px;
+  align-items: center;
+}
+
+.compare-row:last-child { border-bottom: none; }
+
+.compare-row span:first-child {
+  color: var(--charcoal);
+  font-weight: 400;
+}
+
+.compare-yes {
+  color: var(--glow);
+  font-weight: 500;
+}
+
+.compare-no {
+  color: var(--charcoal);
+  opacity: 0.3;
+}
+
+@media (max-width: 600px) {
+  .compare-header, .compare-row {
+    grid-template-columns: 1.2fr 0.8fr 1fr;
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+}
+
+/* ============================================
+   FAQ SECTION
+   ============================================ */
+.faq-section {
+  background: var(--white);
+}
+
+.faq-list {
+  max-width: 640px;
+  margin: 40px auto 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(23,74,58,0.08);
+}
+
+.faq-q {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--charcoal);
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  line-height: 1.5;
+}
+
+.faq-q:hover { color: var(--forest); }
+
+.faq-arrow {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+  color: var(--glow);
+  margin-left: 16px;
+}
+
+.faq-item.open .faq-arrow {
+  transform: rotate(180deg);
+}
+
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s ease;
+  padding: 0 0 0 0;
+}
+
+.faq-item.open .faq-a {
+  max-height: 300px;
+  padding: 0 0 20px 0;
+}
+
+.faq-a p {
+  font-size: 14px;
+  color: var(--charcoal);
+  opacity: 0.7;
+  line-height: 1.65;
+}
+
+/* ============================================
+   GLOWELLE CIRCLE
+   ============================================ */
+.circle-section {
+  background: linear-gradient(180deg, var(--sage-40) 0%, var(--warm) 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.circle-section::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(220,234,223,0.6) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.circle-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: 60px;
+  margin-bottom: 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--forest);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ============================================
+   SOCIAL SECTION
+   ============================================ */
+.social-section {
+  background: var(--white);
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--warm);
+  border: 1px solid var(--glass-border);
+  color: var(--forest);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: var(--sage);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.social-link svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ============================================
+   FINAL CTA
+   ============================================ */
+.final-cta-section {
+  background: var(--warm);
+  text-align: center;
+}
+
+.final-cta-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--white);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: 56px 40px;
+  box-shadow: var(--shadow-lg);
+}
+
+.final-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--forest);
+  margin: 16px 0 24px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  background: var(--forest);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.footer-logo svg {
+  width: 20px;
+  height: 24px;
+  color: var(--sage);
+}
+
+.footer-logo span {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+.footer p {
+  font-size: 12px;
+  line-height: 1.7;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.footer a {
+  color: var(--sage);
+  text-decoration: none;
+}
+
+/* ============================================
+   STICKY MOBILE BUY
+   ============================================ */
+.sticky-buy {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12px 20px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--glass-border);
+  z-index: 100;
+  box-shadow: 0 -4px 20px rgba(23,74,58,0.08);
+}
+
+.sticky-buy-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 480px;
+  margin: 0 auto;
+  gap: 12px;
+}
+
+.sticky-buy-text {
+  font-size: 13px;
+  color: var(--charcoal);
+}
+
+.sticky-buy-text strong {
+  display: block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--forest);
+}
+
+.sticky-buy .btn-primary {
+  padding: 12px 28px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .sticky-buy { display: block; }
+  .final-cta-section { padding-bottom: 120px; }
+  .footer { padding-bottom: 100px; }
+}
+
+/* ============================================
+   SECTION HEADERS (centered)
+   ============================================ */
+.section-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.section-header h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  color: var(--forest);
+  margin-top: 12px;
+}
+
+.section-header p {
+  font-size: 16px;
+  color: var(--charcoal);
+  opacity: 0.6;
+  max-width: 520px;
+  margin: 12px auto 0;
+  line-height: 1.6;
+}
+
+/* ============================================
+   EXCERPT CARDS
+   ============================================ */
+.excerpt-section {
+  background: var(--warm);
+}
+
+.excerpt-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 960px;
+  margin: 40px auto 0;
+}
+
+.excerpt-card {
+  background: var(--white);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.excerpt-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.excerpt-header {
+  background: var(--forest);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.excerpt-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sage);
+}
+
+.excerpt-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+.excerpt-body {
+  padding: 24px 20px;
+}
+
+.excerpt-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(23,74,58,0.05);
+  font-size: 13.5px;
+}
+
+.excerpt-line:last-child { border-bottom: none; }
+
+.excerpt-label {
+  color: var(--glow);
+  font-weight: 500;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.excerpt-value {
+  color: var(--charcoal);
+  text-align: right;
+  opacity: 0.8;
+}
+
+.excerpt-note {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: var(--sage-40);
+  border-radius: var(--radius-xs);
+  font-size: 12.5px;
+  color: var(--forest);
+  line-height: 1.5;
+}
+
+/* animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+}
+
+.text-center { text-align: center; }
+</style>
+
+<!-- =============== HERO =============== -->
+<div class="hero">
+  <div class="hero-inner fade-up">
+    <div class="hero-logo">
+      <svg viewBox="0 0 28 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14 0C14 0 14 12 14 18C14 24 8 28 2 30" stroke="#174A3A" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M14 8C14 8 14 12 18 14C22 16 26 14 28 12" stroke="#4F8A6D" stroke-width="2" stroke-linecap="round"/>
+        <path d="M14 14C14 14 10 18 6 18C4 18 2 17 1 16" stroke="#4F8A6D" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span>Glowelle</span>
+    </div>
+    <p class="label label-gold" style="margin-bottom: 16px;">The 21-Day Real-Life Reset</p>
+    <h1>Your next 21 days are <em>already planned</em></h1>
+    <p class="hero-sub">Simple meals, short movement, easier groceries, and a Rescue Plan built around real life.</p>
+    <div class="hero-price">
+      <span class="hero-price-amount" data-gumroad-field="price"></span>
+    </div>
+    <div class="hero-cta-group">
+      <a data-gumroad-action="buy" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Start Your Reset
+      </a>
+      <span class="hero-note">Instant digital access</span>
+    </div>
+  </div>
+</div>
+
+<!-- =============== PRODUCT EXCERPT / MOCKUP =============== -->
+<div class="excerpt-section section">
+  <div class="section-header">
+    <p class="label">Inside Your Reset</p>
+    <h2>Open today. Follow today. Done.</h2>
+    <p>Every day is one page. Every page has your meals, your movement, and your rescue option ready.</p>
+  </div>
+  <div class="excerpt-grid">
+    <div class="excerpt-card">
+      <div class="excerpt-header">
+        <span class="excerpt-dot"></span>
+        <span class="excerpt-title">Day 3 &mdash; Sample</span>
+      </div>
+      <div class="excerpt-body">
+        <div class="excerpt-line"><span class="excerpt-label">Focus</span><span class="excerpt-value">Build one small morning win</span></div>
+        <div class="excerpt-line"><span class="excerpt-label">Breakfast</span><span class="excerpt-value">Greek yogurt bowl &middot; 5 min</span></div>
+        <div class="excerpt-line"><span class="excerpt-label">Lunch</span><span class="excerpt-value">Turkey &amp; hummus wrap &middot; 8 min</span></div>
+        <div class="excerpt-line"><span class="excerpt-label">Dinner</span><span class="excerpt-value">Sheet pan chicken &middot; 20 min</span></div>
+        <div class="excerpt-line"><span class="excerpt-label">Movement</span><span class="excerpt-value">10-min walk + stretch</span></div>
+        <div class="excerpt-note">Rescue option: Rotisserie chicken + bagged salad &middot; 3 min</div>
+      </div>
+    </div>
+    <div class="excerpt-card">
+      <div class="excerpt-header">
+        <span class="excerpt-dot"></span>
+        <span class="excerpt-title">Weekly Grocery List</span>
+      </div>
+      <div class="excerpt-body">
+        <div class="excerpt-line"><span class="excerpt-label">Produce</span><span class="excerpt-value">Spinach, tomatoes, bananas...</span></div>
+        <div class="excerpt-line"><span class="excerpt-label">Protein</span><span class="excerpt-value">Chicken breast, eggs, yogurt...</span></div>
+        <div class="excerpt-line"><span class="excerpt-label">Pantry</span><span class="excerpt-value">Oats, rice, olive oil...</span></div>
+        <div class="excerpt-line"><span class="excerpt-label">Frozen</span><span class="excerpt-value">Mixed vegetables, berries...</span></div>
+        <div class="excerpt-note">One trip. Normal groceries. No specialty stores needed.</div>
+      </div>
+    </div>
+    <div class="excerpt-card">
+      <div class="excerpt-header">
+        <span class="excerpt-dot"></span>
+        <span class="excerpt-title">Progress Tracker</span>
+      </div>
+      <div class="excerpt-body">
+        <div class="excerpt-line"><span class="excerpt-label">Meals</span><span class="excerpt-value">Simple daily checkbox</span></div>
+        <div class="excerpt-line"><span class="excerpt-label">Movement</span><span class="excerpt-value">Minutes completed</span></div>
+        <div class="excerpt-line"><span class="excerpt-label">Energy</span><span class="excerpt-value">Quick daily rating</span></div>
+        <div class="excerpt-line"><span class="excerpt-label">Wins</span><span class="excerpt-value">One small win per day</span></div>
+        <div class="excerpt-note">No weigh-ins. No calorie counting. Just progress that matters.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- =============== PROBLEM =============== -->
+<div class="problem-section section">
+  <div class="problem-grid">
+    <div>
+      <p class="label" style="margin-bottom: 16px;">The Real Problem</p>
+      <h2 style="font-size: clamp(26px, 3.5vw, 36px); color: var(--forest); margin-bottom: 20px;">You already know what to eat. You just don't have a plan that survives Tuesday.</h2>
+      <p style="font-size: 15px; opacity: 0.7; line-height: 1.7;">The problem isn't knowledge. It's 5:40 pm, the kids are hungry, you're tired, and nobody planned dinner. You don't need more recipes. You need a system that works when the day falls apart.</p>
+    </div>
+    <div>
+      <ul class="problem-list">
+        <li>It's 6 pm and nobody knows what's for dinner</li>
+        <li>You start strong on Monday, then real life happens</li>
+        <li>Your family won't eat "diet food"</li>
+        <li>You keep putting yourself last</li>
+        <li>Meal prep takes hours you don't have</li>
+        <li>Every missed day feels like starting over</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- =============== FOUR LAYERS =============== -->
+<div class="layers-section section">
+  <div class="section-header">
+    <p class="label">How It Works</p>
+    <h2>Four layers. One simple system.</h2>
+    <p>Built for real life, not perfect weeks.</p>
+  </div>
+  <div class="layers-grid">
+    <div class="layer-card">
+      <div class="layer-number">01</div>
+      <h3>Today</h3>
+      <p>One page tells you exactly what to do today. Meals, movement, and one time-saving shortcut. Open it. Follow it. Done.</p>
+    </div>
+    <div class="layer-card">
+      <div class="layer-number">02</div>
+      <h3>The Plan</h3>
+      <p>Three weekly phases &mdash; Reset, Build, Lock-In &mdash; with meals, groceries, and movement that grow with you.</p>
+    </div>
+    <div class="layer-card">
+      <div class="layer-number">03</div>
+      <h3>The Rescue</h3>
+      <p>Bad day? No groceries? No energy? The Busy-Day Rescue has your back. No guilt. No starting over.</p>
+    </div>
+    <div class="layer-card">
+      <div class="layer-number">04</div>
+      <h3>Keep It Going</h3>
+      <p>After Day 21, a simple maintenance system turns your favorites into repeatable routines.</p>
+    </div>
+  </div>
+</div>
+
+<!-- =============== BUSY-DAY RESCUE =============== -->
+<div class="rescue-section section">
+  <div class="section-header">
+    <p class="label" style="color: var(--gold);">Your Safety Net</p>
+    <h2 style="color: var(--white);">The Busy-Day Rescue</h2>
+    <p style="color: rgba(255,255,255,0.6);">Life happens. The Rescue Plan means you never have to start over.</p>
+  </div>
+  <div class="rescue-grid">
+    <div class="rescue-item">
+      <h4>No Time to Cook</h4>
+      <p>Five under-10-minute fallback meals ready to go</p>
+    </div>
+    <div class="rescue-item">
+      <h4>Nothing in the Fridge</h4>
+      <p>Emergency grocery-store combinations that work</p>
+    </div>
+    <div class="rescue-item">
+      <h4>Missed Workout</h4>
+      <p>Five-minute minimum movement &mdash; still counts</p>
+    </div>
+    <div class="rescue-item">
+      <h4>Missed Two Days</h4>
+      <p>Resume from the next action, not Day 1</p>
+    </div>
+    <div class="rescue-item">
+      <h4>Family Wants Takeout</h4>
+      <p>Practical ordering framework &mdash; no guilt</p>
+    </div>
+    <div class="rescue-item">
+      <h4>Low Energy Day</h4>
+      <p>Minimum viable day: one meal win, one move, one check</p>
+    </div>
+  </div>
+</div>
+
+<!-- =============== WHAT YOU RECEIVE =============== -->
+<div class="receive-section section">
+  <div class="section-header">
+    <p class="label">Everything Included</p>
+    <h2>What you receive</h2>
+  </div>
+  <ul class="receive-list">
+    <li>
+      <span class="receive-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#174A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong>21 Daily Action Plans</strong> &mdash; meals, movement, shortcuts, and rescue options for every day</span>
+    </li>
+    <li>
+      <span class="receive-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#174A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong>21-Day Quick Meal System</strong> &mdash; family-friendly meals, all under 20 minutes active prep</span>
+    </li>
+    <li>
+      <span class="receive-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#174A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong>3 Weekly Grocery Lists</strong> &mdash; one trip, normal groceries, no specialty ingredients</span>
+    </li>
+    <li>
+      <span class="receive-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#174A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong>10&ndash;20 Minute Home Movement Plan</strong> &mdash; no gym, no equipment, beginner-friendly</span>
+    </li>
+    <li>
+      <span class="receive-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#174A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong>Busy Mom Rescue Kit</strong> &mdash; fallback meals, emergency plans, and restart protocol</span>
+    </li>
+    <li>
+      <span class="receive-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#174A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong>Family &amp; Ingredient Swap Guide</strong> &mdash; easy swaps so the whole family eats well</span>
+    </li>
+    <li>
+      <span class="receive-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#174A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong>Sunday Prep System</strong> &mdash; minimal-effort weekly setup for easier weekdays</span>
+    </li>
+    <li>
+      <span class="receive-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#174A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong>Printable &amp; Mobile Progress Tracker</strong> &mdash; simple check-ins, no calorie counting</span>
+    </li>
+    <li>
+      <span class="receive-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#174A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong>Short Movement Video Library</strong> &mdash; follow-along routines you can do at home</span>
+    </li>
+    <li>
+      <span class="receive-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#174A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong>21-Day Email Companion</strong> &mdash; daily guidance delivered to your inbox</span>
+    </li>
+    <li>
+      <span class="receive-check"><svg viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#174A3A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><strong>After Day 21 Maintenance Map</strong> &mdash; turn your reset into lasting routines</span>
+    </li>
+  </ul>
+</div>
+
+<!-- =============== NOTION COMPANION =============== -->
+<div class="notion-section section">
+  <div class="notion-card">
+    <div class="notion-badge">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2" y="2" width="12" height="12" rx="2" stroke="#174A3A" stroke-width="1.5"/><path d="M5 5h6M5 8h4" stroke="#174A3A" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Optional Bonus
+    </div>
+    <h3 style="font-size: 24px; color: var(--forest); margin-bottom: 12px;">Glowelle Digital Reset Dashboard</h3>
+    <p style="font-size: 14px; color: var(--charcoal); opacity: 0.7; line-height: 1.65; max-width: 420px; margin: 0 auto;">A Notion companion that organizes your daily plans, grocery lists, and progress in one place. Completely optional &mdash; the full program works perfectly on its own with PDF and mobile.</p>
+  </div>
+</div>
+
+<!-- =============== COMPARISON =============== -->
+<div class="compare-section section">
+  <div class="section-header">
+    <p class="label">Why Glowelle</p>
+    <h2>Not another diet PDF</h2>
+    <p>Glowelle is a practical system designed around family meals, limited time, and imperfect days.</p>
+  </div>
+  <div class="compare-table">
+    <div class="compare-header">
+      <span>Feature</span>
+      <span>Typical Plans</span>
+      <span>Glowelle</span>
+    </div>
+    <div class="compare-row">
+      <span>Family-friendly meals</span>
+      <span class="compare-no">Rarely</span>
+      <span class="compare-yes">Every meal</span>
+    </div>
+    <div class="compare-row">
+      <span>Active prep under 20 min</span>
+      <span class="compare-no">Sometimes</span>
+      <span class="compare-yes">Always</span>
+    </div>
+    <div class="compare-row">
+      <span>Rescue plan for bad days</span>
+      <span class="compare-no">No</span>
+      <span class="compare-yes">Built in</span>
+    </div>
+    <div class="compare-row">
+      <span>Normal grocery ingredients</span>
+      <span class="compare-no">Specialty items</span>
+      <span class="compare-yes">One-trip list</span>
+    </div>
+    <div class="compare-row">
+      <span>Short home movement</span>
+      <span class="compare-no">Gym required</span>
+      <span class="compare-yes">10&ndash;20 min at home</span>
+    </div>
+    <div class="compare-row">
+      <span>Restart without guilt</span>
+      <span class="compare-no">Start over</span>
+      <span class="compare-yes">Resume at next action</span>
+    </div>
+    <div class="compare-row">
+      <span>After-plan maintenance</span>
+      <span class="compare-no">None</span>
+      <span class="compare-yes">Day 22+ map</span>
+    </div>
+  </div>
+</div>
+
+<!-- =============== FAQ =============== -->
+<div class="faq-section section">
+  <div class="section-header">
+    <p class="label">Questions</p>
+    <h2>Frequently asked</h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        I have no time. Will this actually fit my day?
+        <svg class="faq-arrow" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-a"><p>Every meal is under 20 minutes of active prep. Movement is 10&ndash;20 minutes at home. And if even that feels like too much, the Busy-Day Rescue gives you a 5-minute fallback for everything.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        My family won't eat diet food. Will they eat this?
+        <svg class="faq-arrow" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-a"><p>Glowelle meals are built to be family-friendly. Normal ingredients, familiar dishes, and easy swaps so everyone at the table eats well &mdash; without you cooking two separate dinners.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        What if I fall off track?
+        <svg class="faq-arrow" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-a"><p>That's exactly what the Rescue system is for. Missed a day or two? You pick up at the next action, not Day 1. The restart protocol resumes at your current spot &mdash; no guilt, no starting over.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        Do I need Notion to use this?
+        <svg class="faq-arrow" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-a"><p>No. The entire program works independently with PDF and mobile. The Notion dashboard is an optional companion for people who like digital organization, but it's not required.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        I'm not fit at all. Is this for beginners?
+        <svg class="faq-arrow" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-a"><p>Yes. All movement is low-impact, at home, with no equipment needed. Every routine includes modifications. If 10 minutes feels like a lot, the rescue plan has a 5-minute option.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        I hate meal prep. How much prep is involved?
+        <svg class="faq-arrow" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-a"><p>The Sunday Prep System is minimal &mdash; a short weekly setup that saves time during the week. Plus there are no-cook emergency options for days when even that feels like too much.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+        What happens after 21 days?
+        <svg class="faq-arrow" viewBox="0 0 20 20" fill="none"><path d="M5 8l5 5 5-5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="faq-a"><p>The After Day 21 Maintenance Map helps you turn your favorite meals and routines from the reset into a repeatable system. The goal is lasting routines, not a 21-day sprint.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- =============== GLOWELLE CIRCLE =============== -->
+<div class="circle-section section">
+  <div style="position: relative; z-index: 1;">
+    <div class="circle-badge">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#174A3A" stroke-width="1.5"/><path d="M8 5v3l2 2" stroke="#174A3A" stroke-width="1.2" stroke-linecap="round"/></svg>
+      Community
+    </div>
+    <h2 style="font-size: clamp(28px, 4vw, 40px); color: var(--forest); margin-bottom: 16px;">Join the Glowelle Circle</h2>
+    <p style="font-size: 16px; color: var(--charcoal); opacity: 0.6; max-width: 460px; margin: 0 auto 24px; line-height: 1.65;">Real moms sharing real progress. Find us on social media for daily inspiration, rescue ideas, and honest conversations about making healthy easier.</p>
+    <div style="display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
+      <a href="https://www.pinterest.com/glo_welle/" target="_blank" class="social-link" aria-label="Pinterest">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1C5.03 1 1 5.03 1 10c0 3.61 2.13 6.72 5.2 8.16-.07-.65-.13-1.65.03-2.36.15-.65.96-4.07.96-4.07s-.24-.49-.24-1.21c0-1.13.66-1.98 1.47-1.98.7 0 1.03.52 1.03 1.15 0 .7-.45 1.74-.68 2.71-.19.81.41 1.47 1.21 1.47 1.45 0 2.57-1.53 2.57-3.74 0-1.96-1.41-3.33-3.42-3.33-2.33 0-3.7 1.75-3.7 3.55 0 .7.27 1.46.61 1.87.07.08.08.15.06.23-.06.26-.2.81-.23.92-.04.15-.12.18-.28.11-1.04-.48-1.69-2-1.69-3.22 0-2.62 1.9-5.03 5.49-5.03 2.88 0 5.12 2.05 5.12 4.79 0 2.86-1.81 5.17-4.31 5.17-.84 0-1.63-.44-1.9-.96l-.52 1.97c-.19.72-.7 1.63-1.04 2.18.78.24 1.61.37 2.47.37 4.97 0 9-4.03 9-9s-4.03-9-9-9z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61590679226982" target="_blank" class="social-link" aria-label="Facebook">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M18 10c0-4.42-3.58-8-8-8s-8 3.58-8 8c0 3.99 2.93 7.3 6.75 7.9v-5.59H6.72V10h2.03V8.16c0-2 1.19-3.11 3.02-3.11.87 0 1.79.16 1.79.16v1.97h-1.01c-.99 0-1.3.62-1.3 1.25V10h2.22l-.35 2.31h-1.87v5.59C15.07 17.3 18 13.99 18 10z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/glowelle6/" target="_blank" class="social-link" aria-label="Instagram">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2.16c2.13 0 2.38.01 3.23.05.78.04 1.2.16 1.49.27.37.14.64.32.92.6.28.28.46.55.6.92.11.28.24.71.27 1.49.04.84.05 1.1.05 3.23s-.01 2.38-.05 3.23c-.04.78-.16 1.2-.27 1.49-.14.37-.32.64-.6.92-.28.28-.55.46-.92.6-.28.11-.71.24-1.49.27-.84.04-1.1.05-3.23.05s-2.38-.01-3.23-.05c-.78-.04-1.2-.16-1.49-.27-.37-.14-.64-.32-.92-.6-.28-.28-.46-.55-.6-.92-.11-.28-.24-.71-.27-1.49-.04-.84-.05-1.1-.05-3.23s.01-2.38.05-3.23c.04-.78.16-1.2.27-1.49.14-.37.32-.64.6-.92.28-.28.55-.46.92-.6.28-.11.71-.24 1.49-.27.84-.04 1.1-.05 3.23-.05zM10 1c-2.17 0-2.44.01-3.29.05-.85.04-1.43.17-1.94.37-.53.2-.97.48-1.42.93-.45.45-.72.89-.93 1.42-.2.51-.33 1.09-.37 1.94C2.01 6.56 2 6.83 2 10s.01 3.44.05 4.29c.04.85.17 1.43.37 1.94.2.53.48.97.93 1.42.45.45.89.72 1.42.93.51.2 1.09.33 1.94.37.85.04 1.12.05 3.29.05s2.44-.01 3.29-.05c.85-.04 1.43-.17 1.94-.37.53-.2.97-.48 1.42-.93.45-.45.72-.89.93-1.42.2-.51.33-1.09.37-1.94.04-.85.05-1.12.05-3.29s-.01-2.44-.05-3.29c-.04-.85-.17-1.43-.37-1.94-.2-.53-.48-.97-.93-1.42-.45-.45-.89-.72-1.42-.93-.51-.2-1.09-.33-1.94-.37C12.44 1.01 12.17 1 10 1zm0 4.38a4.62 4.62 0 100 9.24 4.62 4.62 0 000-9.24zM10 13a3 3 0 110-6 3 3 0 010 6zm5.88-7.8a1.08 1.08 0 11-2.16 0 1.08 1.08 0 012.16 0z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@Glo_welle" target="_blank" class="social-link" aria-label="YouTube">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M17.77 6.24s-.17-1.2-.69-1.73c-.66-.69-1.4-.7-1.74-.74C13.14 3.6 10 3.6 10 3.6s-3.14 0-5.34.17c-.34.04-1.08.05-1.74.74-.52.53-.69 1.73-.69 1.73S2.06 7.62 2.06 9v1.26c0 1.38.17 2.76.17 2.76s.17 1.2.69 1.73c.66.69 1.53.67 1.92.74 1.39.13 5.16.17 5.16.17s3.14 0 5.34-.18c.34-.04 1.08-.05 1.74-.74.52-.53.69-1.73.69-1.73s.17-1.38.17-2.76V9c0-1.38-.17-2.76-.17-2.76zM8.3 12.2V7.4l4.68 2.41L8.3 12.2z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@glo_welle" target="_blank" class="social-link" aria-label="TikTok">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M16.6 5.78A4.07 4.07 0 0113.97 3h-2.8v9.73a2.4 2.4 0 01-2.4 2.15 2.4 2.4 0 01-2.4-2.4 2.4 2.4 0 012.4-2.4c.25 0 .49.04.72.1V7.28a5.2 5.2 0 00-.72-.05 5.2 5.2 0 00-5.2 5.2 5.2 5.2 0 005.2 5.2 5.2 5.2 0 005.2-5.2V8.76A6.84 6.84 0 0017.97 10V7.17a4.07 4.07 0 01-1.37-1.39z"/></svg>
+      </a>
+      <a href="https://medium.com/@hello.glowelle" target="_blank" class="social-link" aria-label="Medium">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M11.25 10c0 2.9-2.34 5.25-5.22 5.25C3.16 15.25.8 12.9.8 10S3.16 4.75 6.03 4.75C8.91 4.75 11.25 7.1 11.25 10zm5.74 0c0 2.73-1.17 4.94-2.61 4.94S11.77 12.73 11.77 10s1.17-4.94 2.61-4.94 2.61 2.21 2.61 4.94zm2.21 0c0 2.44-.41 4.42-.92 4.42s-.92-1.98-.92-4.42.41-4.42.92-4.42.92 1.98.92 4.42z"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- =============== SOCIAL SECTION =============== -->
+<div class="social-section section" style="padding-top: 40px; padding-bottom: 40px;">
+  <p style="font-size: 14px; color: var(--charcoal); opacity: 0.5;">Follow along for daily rescue ideas, meal inspiration, and honest wellness</p>
+</div>
+
+<!-- =============== FINAL CTA =============== -->
+<div class="final-cta-section section">
+  <div class="final-cta-card">
+    <p class="label label-gold" style="margin-bottom: 8px;">Ready to Start?</p>
+    <h2 style="font-size: clamp(26px, 3.5vw, 36px); color: var(--forest);">Make the next healthy decision easier</h2>
+    <div class="final-price" data-gumroad-field="price"></div>
+    <a data-gumroad-action="buy" class="btn-primary" style="margin-bottom: 16px;">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v14M1 8h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Get the 21-Day Reset
+    </a>
+    <p style="font-size: 13px; color: var(--charcoal); opacity: 0.45; margin-top: 8px;">Instant access &middot; PDF + digital delivery</p>
+  </div>
+</div>
+
+<!-- =============== FOOTER =============== -->
+<div class="footer">
+  <div class="footer-logo">
+    <svg viewBox="0 0 28 34" fill="none">
+      <path d="M14 0C14 0 14 12 14 18C14 24 8 28 2 30" stroke="#DCEADF" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M14 8C14 8 14 12 18 14C22 16 26 14 28 12" stroke="#4F8A6D" stroke-width="2" stroke-linecap="round"/>
+      <path d="M14 14C14 14 10 18 6 18C4 18 2 17 1 16" stroke="#4F8A6D" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+    <span>Glowelle</span>
+  </div>
+  <p>Real-life wellness systems for busy moms.<br>Simple meals &middot; short movement &middot; less guessing.</p>
+  <p style="margin-top: 16px; font-size: 11px; opacity: 0.4;">Glowelle is an educational wellness resource and is not medical care. Individual nutrition, movement, and weight needs vary. Seek appropriate qualified guidance for personal medical or dietary decisions.</p>
+</div>
+
+<!-- =============== STICKY MOBILE BUY =============== -->
+<div class="sticky-buy">
+  <div class="sticky-buy-inner">
+    <div class="sticky-buy-text">
+      <strong data-gumroad-field="price"></strong>
+      21-Day Real-Life Reset
+    </div>
+    <a data-gumroad-action="buy" class="btn-primary">Buy Now</a>
+  </div>
+</div>
