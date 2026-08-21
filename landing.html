@@ -1,6 +1,5 @@
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700;800&display=swap');
 :root {
   --forest: #174A3A;
   --glow: #4F8A6D;
@@ -17,761 +16,130 @@
   --accent: #DCEADF;
   --accent2: rgba(220,234,223,0.35);
   --border: rgba(23,74,58,0.08);
-  --glass: rgba(255,255,255,0.75);
   --radius: 16px;
-  --radius-sm: 10px;
 }
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  color: var(--text);
-  background: var(--bg1);
-  -webkit-font-smoothing: antialiased;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-.serif { font-family: 'Cormorant Garamond', Georgia, serif; }
-
-h1, h2, h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: var(--forest);
-}
-
-.wrap {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-section { padding: 80px 0; }
-
-@media (max-width: 768px) {
-  section { padding: 56px 0; }
-}
-
-.eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 14px;
-}
-
-.lead {
-  font-size: .95rem;
-  color: var(--muted);
-  line-height: 1.7;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 16px 36px;
-  font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  border: none;
-  border-radius: 60px;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.btn-primary {
-  background: var(--forest);
-  color: var(--white);
-  box-shadow: 0 4px 20px rgba(23,74,58,0.25);
-}
-
-.btn-primary:hover {
-  background: #1a5a47;
-  box-shadow: 0 8px 32px rgba(23,74,58,0.35);
-  transform: translateY(-2px);
-}
-
-/* ============ MARQUEE ============ */
-.marquee-wrap {
-  background: var(--forest);
-  padding: 12px 0;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-.marquee-track {
-  display: inline-flex;
-  gap: 0;
-  animation: marquee 20s linear infinite;
-}
-
-.marquee-item {
-  font-family: 'Inter', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--sage);
-  padding: 0 24px;
-  flex-shrink: 0;
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;color:var(--text);background:var(--bg1);-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+img{max-width:100%;height:auto;display:block}
+.serif{font-family:'Cormorant Garamond',Georgia,serif}
+h1,h2,h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;line-height:1.2;letter-spacing:-.01em;color:var(--forest)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+section{padding:48px 0}
+.eyebrow{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.lead{font-size:.92rem;color:var(--muted);line-height:1.7}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:16px 36px;font-family:'Inter',sans-serif;font-size:15px;font-weight:600;letter-spacing:.02em;border:none;border-radius:60px;cursor:pointer;text-decoration:none;transition:background .2s,box-shadow .2s,transform .15s;touch-action:manipulation}
+.btn-primary{background:var(--forest);color:var(--white);box-shadow:0 4px 20px rgba(23,74,58,.25)}
+.btn-primary:hover{background:#1a5a47;box-shadow:0 8px 32px rgba(23,74,58,.35);transform:translateY(-2px)}
+.btn-primary:active{transform:translateY(0);box-shadow:0 2px 12px rgba(23,74,58,.2)}
 
 /* ============ HERO ============ */
-.hero {
-  padding: 64px 0 80px;
-  background: linear-gradient(180deg, var(--white) 0%, var(--bg1) 100%);
-}
+.hero{padding:40px 0 48px;background:linear-gradient(180deg,var(--white) 0%,var(--bg1) 100%)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.product-img-wrap{border-radius:var(--radius);overflow:hidden;background:var(--accent)}
+.product-img-wrap img{width:100%;aspect-ratio:4/5;object-fit:cover}
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  align-items: center;
-}
+.price-now{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--forest)}
+.price-strike{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--muted);text-decoration:line-through;opacity:.7}
+.pay-label{font-size:.72rem;color:var(--muted);margin-bottom:8px;font-weight:500}
+.pay-badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
 
-@media (max-width: 900px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-}
-
-/* Product mockup gallery */
-.gallery-container {
-  position: relative;
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--accent);
-}
-
-.gallery-scroll {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-}
-
-.gallery-scroll::-webkit-scrollbar { display: none; }
-
-.gallery-slide {
-  flex: 0 0 100%;
-  scroll-snap-align: start;
-  aspect-ratio: 4/5;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
-}
-
-.mockup-book {
-  width: 220px;
-  background: var(--white);
-  border-radius: 4px 12px 12px 4px;
-  box-shadow: -6px 6px 24px rgba(23,74,58,0.15), 0 2px 8px rgba(23,74,58,0.08);
-  overflow: hidden;
-  position: relative;
-}
-
-.mockup-book::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 4px;
-  background: linear-gradient(180deg, var(--forest) 0%, var(--glow) 100%);
-}
-
-.mockup-cover {
-  padding: 28px 20px;
-  text-align: center;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(160deg, var(--white) 0%, #F8FAF8 100%);
-}
-
-.mockup-cover .mc-leaf {
-  width: 32px;
-  height: 38px;
-  margin-bottom: 16px;
-}
-
-.mockup-cover .mc-brand {
-  font-family: 'Inter', sans-serif;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--glow);
-  margin-bottom: 16px;
-}
-
-.mockup-cover .mc-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 500;
-  color: var(--forest);
-  line-height: 1.2;
-  margin-bottom: 8px;
-}
-
-.mockup-cover .mc-sub {
-  font-size: 9px;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
-.mockup-cover .mc-line {
-  width: 40px;
-  height: 1px;
-  background: var(--sage);
-  margin: 12px auto;
-}
-
-/* Page mockup */
-.mockup-page {
-  padding: 20px 18px;
-  min-height: 300px;
-  background: var(--white);
-}
-
-.mockup-page .mp-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 14px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--sage);
-}
-
-.mockup-page .mp-day {
-  font-family: 'Inter', sans-serif;
-  font-size: 8px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--forest);
-}
-
-.mockup-page .mp-badge {
-  font-size: 7px;
-  font-weight: 600;
-  color: var(--white);
-  background: var(--glow);
-  padding: 2px 8px;
-  border-radius: 20px;
-}
-
-.mockup-page .mp-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(220,234,223,0.5);
-  font-size: 8px;
-}
-
-.mockup-page .mp-label {
-  color: var(--glow);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-size: 7px;
-}
-
-.mockup-page .mp-value {
-  color: var(--charcoal);
-  text-align: right;
-  font-size: 8px;
-}
-
-.mockup-page .mp-rescue {
-  margin-top: 10px;
-  padding: 8px;
-  background: var(--accent2);
-  border-radius: 6px;
-  font-size: 7px;
-  color: var(--forest);
-  text-align: center;
-}
-
-.gallery-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  padding: 16px 0;
-}
-
-.gallery-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--border);
-  transition: all 0.3s;
-}
-
-.gallery-dot.active {
-  background: var(--forest);
-  width: 24px;
-  border-radius: 4px;
-}
-
-.price-now {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2rem;
-  font-weight: 600;
-  color: var(--forest);
-}
-
-.price-strike {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
-  color: var(--muted);
-  text-decoration: line-through;
-  opacity: 0.7;
-}
-
-.pay-label {
-  font-size: .72rem;
-  color: var(--muted);
-  margin-bottom: 8px;
-  font-weight: 500;
-}
-
-.pay-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  align-items: center;
-}
-
-.pay-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-family: Arial, sans-serif;
-  font-size: .5rem;
-  font-weight: 700;
-  line-height: 1.4;
-}
-
-/* ============ GRID LAYOUTS ============ */
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-@media (max-width: 768px) {
-  .grid-3 { grid-template-columns: 1fr; }
-}
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-}
-
-@media (max-width: 768px) {
-  .grid-2 { grid-template-columns: 1fr; gap: 32px; }
-}
-
-/* ============ CARDS ============ */
-.card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 32px 28px;
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  box-shadow: 0 8px 32px rgba(23,74,58,0.08);
-  transform: translateY(-2px);
-}
-
-.feature-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--accent);
-  margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.feature-icon svg { width: 22px; height: 22px; color: var(--forest); }
+/* ============ GRIDS ============ */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:box-shadow .2s,transform .15s}
+.card:hover{box-shadow:0 8px 32px rgba(23,74,58,.08);transform:translateY(-2px)}
+.feature-icon{width:44px;height:44px;border-radius:50%;background:var(--accent);margin-bottom:14px;display:flex;align-items:center;justify-content:center}
+.feature-icon svg{width:20px;height:20px;color:var(--forest)}
 
 /* ============ BENEFITS ============ */
-.check-row {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-}
-
-.dot {
-  flex-shrink: 0;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--sage);
-  border: 2.5px solid var(--glow);
-  margin-top: 6px;
-}
+.check-row{display:flex;gap:14px;align-items:flex-start}
+.dot{flex-shrink:0;width:10px;height:10px;border-radius:50%;background:var(--sage);border:2.5px solid var(--glow);margin-top:6px}
 
 /* ============ COMPARISON TABLE ============ */
-.cmp-table {
-  border-radius: var(--radius);
-  overflow: hidden;
-  background: var(--white);
-  box-shadow: 0 4px 20px rgba(23,74,58,0.06);
-}
-
-.cmp-row {
-  display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr;
-  padding: 14px 24px;
-  border-bottom: 1px solid rgba(23,74,58,0.05);
-  align-items: center;
-  font-size: .88rem;
-}
-
-.cmp-row:last-child { border-bottom: none; }
-
-.cmp-head {
-  background: var(--forest);
-  font-weight: 700;
-  font-size: .78rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--sage);
-}
-
-.cmp-head .cmp-col { text-align: center; }
-
-.cmp-alt { background: var(--bg2); }
-
-.cmp-label {
-  color: var(--text);
-  font-weight: 500;
-}
-
-.cmp-col {
-  text-align: center;
-}
-
-.cmp-yes {
-  color: var(--glow);
-  font-weight: 700;
-  font-size: 1.1rem;
-}
-
-.cmp-no {
-  color: var(--charcoal);
-  opacity: 0.25;
-  font-size: 1rem;
-}
-
-@media (max-width: 600px) {
-  .cmp-row {
-    grid-template-columns: 1.2fr 0.7fr 0.8fr;
-    padding: 12px 16px;
-    font-size: .8rem;
-  }
-}
+.cmp-table{border-radius:var(--radius);overflow:hidden;background:var(--white);box-shadow:0 4px 20px rgba(23,74,58,.06)}
+.cmp-row{display:grid;grid-template-columns:1.5fr 1fr 1fr;padding:14px 24px;border-bottom:1px solid rgba(23,74,58,.05);align-items:center;font-size:.88rem}
+.cmp-row:last-child{border-bottom:none}
+.cmp-head{background:var(--forest);font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--sage)}
+.cmp-head .cmp-col{text-align:center}
+.cmp-alt{background:var(--bg2)}
+.cmp-label{color:var(--text);font-weight:500}
+.cmp-col{text-align:center}
+.cmp-yes{color:var(--glow);font-weight:700;font-size:1.1rem}
+.cmp-no{color:var(--charcoal);opacity:.25;font-size:1rem}
 
 /* ============ CREATOR ============ */
-.creator-card {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 48px 40px;
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto;
-}
-
-.creator-avatar {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--sage), var(--glow));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 28px;
-  font-weight: 500;
-  color: var(--white);
-}
-
-.creator-name {
-  font-size: 1.6rem;
-  color: var(--forest);
-  margin-bottom: 4px;
-}
-
-.creator-tag {
-  font-size: .82rem;
-  color: var(--gold);
-  font-weight: 600;
-  margin-bottom: 24px;
-}
-
-.creator-story {
-  font-size: .92rem;
-  color: var(--muted);
-  line-height: 1.75;
-  text-align: left;
-  max-width: 480px;
-  margin: 0 auto;
-}
+.creator-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:40px 32px;text-align:center;max-width:640px;margin:0 auto}
+.creator-avatar{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--sage),var(--glow));display:flex;align-items:center;justify-content:center;margin:0 auto 18px;font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:500;color:var(--white)}
+.creator-name{font-size:1.5rem;color:var(--forest);margin-bottom:4px}
+.creator-tag{font-size:.82rem;color:var(--gold);font-weight:600;margin-bottom:20px}
+.creator-story{font-size:.9rem;color:var(--muted);line-height:1.75;text-align:left;max-width:480px;margin:0 auto}
 
 /* ============ FAQ ============ */
-details {
-  border-bottom: 1px solid var(--border);
-}
-
-summary {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 0;
-  cursor: pointer;
-  font-family: 'Inter', sans-serif;
-  font-size: .95rem;
-  font-weight: 500;
-  color: var(--text);
-  list-style: none;
-  line-height: 1.5;
-}
-
-summary::-webkit-details-marker { display: none; }
-
-summary:hover { color: var(--forest); }
-
-.chev {
-  flex-shrink: 0;
-  color: var(--glow);
-  font-size: 1.2rem;
-  margin-left: 16px;
-  transition: transform 0.3s;
-}
-
-details[open] .chev { transform: rotate(180deg); }
-
-details p {
-  padding: 0 0 20px;
-  font-size: .9rem;
-  color: var(--muted);
-  line-height: 1.7;
-}
+details{border-bottom:1px solid var(--border)}
+summary{display:flex;align-items:center;justify-content:space-between;padding:18px 0;cursor:pointer;font-size:.93rem;font-weight:500;color:var(--text);list-style:none;line-height:1.5;touch-action:manipulation}
+summary::-webkit-details-marker{display:none}
+summary:hover{color:var(--forest)}
+.chev{flex-shrink:0;color:var(--glow);font-size:1.2rem;margin-left:16px;transition:transform .2s}
+details[open] .chev{transform:rotate(180deg)}
+details p{padding:0 0 18px;font-size:.88rem;color:var(--muted);line-height:1.7}
 
 /* ============ SOCIAL ============ */
-.social-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--bg1);
-  border: 1px solid var(--border);
-  color: var(--forest);
-  text-decoration: none;
-  transition: all 0.3s ease;
+.social-icon{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--bg1);border:1px solid var(--border);color:var(--forest);text-decoration:none;transition:background .2s,transform .15s}
+.social-icon:hover{background:var(--sage);transform:translateY(-2px)}
+.social-icon svg{width:20px;height:20px}
+
+/* ============ REVEAL ============ */
+.reveal{opacity:0;transform:translateY(16px);animation:revealUp .5s ease-out forwards}
+@keyframes revealUp{to{opacity:1;transform:translateY(0)}}
+.reveal:nth-child(2){animation-delay:.08s}
+.reveal:nth-child(3){animation-delay:.16s}
+.reveal:nth-child(4){animation-delay:.24s}
+.reveal:nth-child(5){animation-delay:.32s}
+.reveal:nth-child(6){animation-delay:.4s}
+
+/* ============ MOBILE FIRST ============ */
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .product-img-wrap{max-width:380px;margin:0 auto}
 }
-
-.social-icon:hover {
-  background: var(--sage);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(23,74,58,0.08);
+@media(max-width:768px){
+  section{padding:36px 0}
+  .grid-3{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr;gap:28px}
+  h1{font-size:1.8rem!important}
+  h2{font-size:1.5rem!important}
+  .btn{padding:14px 28px;font-size:14px;width:100%}
+  .card{padding:24px 20px}
+  .creator-card{padding:32px 24px}
 }
-
-.social-icon svg { width: 20px; height: 20px; }
-
-/* ============ REVEAL ANIMATION ============ */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: revealUp 0.7s ease-out forwards;
-}
-
-@keyframes revealUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.reveal:nth-child(2) { animation-delay: 0.1s; }
-.reveal:nth-child(3) { animation-delay: 0.2s; }
-.reveal:nth-child(4) { animation-delay: 0.3s; }
-.reveal:nth-child(5) { animation-delay: 0.4s; }
-.reveal:nth-child(6) { animation-delay: 0.5s; }
-
-/* ============ PROGRESS BAR ============ */
-#progress-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--glow), var(--forest));
-  z-index: 200;
-  width: 0%;
+@media(max-width:600px){
+  .wrap{padding:0 16px}
+  section{padding:32px 0}
+  .cmp-row{grid-template-columns:1.2fr .7fr .8fr;padding:12px 14px;font-size:.8rem}
+  .product-img-wrap{max-width:320px}
 }
 </style>
-
-<div id="progress-bar"></div>
-
-<!-- TOP MARQUEE TICKER -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-  </div>
-</div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-grid">
-      <!-- Product Mockup Gallery -->
+      <!-- Product Image -->
       <div class="reveal">
-        <div class="gallery-container">
-          <div class="gallery-scroll">
-            <!-- Slide 1: Cover -->
-            <div class="gallery-slide">
-              <div class="mockup-book">
-                <div class="mockup-cover">
-                  <svg class="mc-leaf" viewBox="0 0 28 34" fill="none">
-                    <path d="M14 0C14 0 14 12 14 18C14 24 8 28 2 30" stroke="#174A3A" stroke-width="2.5" stroke-linecap="round"/>
-                    <path d="M14 8C14 8 14 12 18 14C22 16 26 14 28 12" stroke="#4F8A6D" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M14 14C14 14 10 18 6 18C4 18 2 17 1 16" stroke="#4F8A6D" stroke-width="2" stroke-linecap="round"/>
-                  </svg>
-                  <div class="mc-brand">GLOWELLE</div>
-                  <div class="mc-title">21-Day<br>Real-Life Reset</div>
-                  <div class="mc-line"></div>
-                  <div class="mc-sub">Simple meals &middot; Short movement<br>Easier groceries &middot; Rescue plans</div>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 2: Day Plan -->
-            <div class="gallery-slide">
-              <div class="mockup-book">
-                <div class="mockup-page">
-                  <div class="mp-header">
-                    <span class="mp-day">Day 3 &mdash; Build</span>
-                    <span class="mp-badge">Week 1</span>
-                  </div>
-                  <div class="mp-row"><span class="mp-label">Focus</span><span class="mp-value">One morning win</span></div>
-                  <div class="mp-row"><span class="mp-label">Breakfast</span><span class="mp-value">Yogurt bowl &middot; 5 min</span></div>
-                  <div class="mp-row"><span class="mp-label">Lunch</span><span class="mp-value">Turkey wrap &middot; 8 min</span></div>
-                  <div class="mp-row"><span class="mp-label">Dinner</span><span class="mp-value">Sheet pan chicken &middot; 20 min</span></div>
-                  <div class="mp-row"><span class="mp-label">Move</span><span class="mp-value">10-min walk + stretch</span></div>
-                  <div class="mp-row"><span class="mp-label">Shortcut</span><span class="mp-value">Prep lunch at dinner</span></div>
-                  <div class="mp-rescue">Rescue: Rotisserie chicken + bagged salad &middot; 3 min</div>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 3: Meal Plan -->
-            <div class="gallery-slide">
-              <div class="mockup-book">
-                <div class="mockup-page">
-                  <div class="mp-header">
-                    <span class="mp-day">Weekly Meals</span>
-                    <span class="mp-badge">Week 1</span>
-                  </div>
-                  <div class="mp-row"><span class="mp-label">Mon</span><span class="mp-value">Oats / Wrap / Stir-fry</span></div>
-                  <div class="mp-row"><span class="mp-label">Tue</span><span class="mp-value">Smoothie / Salad / Tacos</span></div>
-                  <div class="mp-row"><span class="mp-label">Wed</span><span class="mp-value">Eggs / Soup / Salmon</span></div>
-                  <div class="mp-row"><span class="mp-label">Thu</span><span class="mp-value">Yogurt / Bowl / Pasta</span></div>
-                  <div class="mp-row"><span class="mp-label">Fri</span><span class="mp-value">Toast / Wrap / Pizza</span></div>
-                  <div class="mp-row"><span class="mp-label">Sat</span><span class="mp-value">Pancakes / Burger</span></div>
-                  <div class="mp-row"><span class="mp-label">Sun</span><span class="mp-value">Prep day + leftovers</span></div>
-                  <div class="mp-rescue">All meals: under 20 min active prep</div>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 4: Grocery List -->
-            <div class="gallery-slide">
-              <div class="mockup-book">
-                <div class="mockup-page">
-                  <div class="mp-header">
-                    <span class="mp-day">Grocery List</span>
-                    <span class="mp-badge">Week 1</span>
-                  </div>
-                  <div class="mp-row"><span class="mp-label">Produce</span><span class="mp-value">Spinach, tomatoes, bananas</span></div>
-                  <div class="mp-row"><span class="mp-label">Protein</span><span class="mp-value">Chicken, eggs, yogurt</span></div>
-                  <div class="mp-row"><span class="mp-label">Pantry</span><span class="mp-value">Oats, rice, olive oil</span></div>
-                  <div class="mp-row"><span class="mp-label">Frozen</span><span class="mp-value">Vegetables, berries</span></div>
-                  <div class="mp-row"><span class="mp-label">Dairy</span><span class="mp-value">Milk, cheese, butter</span></div>
-                  <div class="mp-rescue">One trip &middot; Normal groceries &middot; No specialty stores</div>
-                </div>
-              </div>
-            </div>
-            <!-- Slide 5: Tracker -->
-            <div class="gallery-slide">
-              <div class="mockup-book">
-                <div class="mockup-page">
-                  <div class="mp-header">
-                    <span class="mp-day">Progress Tracker</span>
-                    <span class="mp-badge">Daily</span>
-                  </div>
-                  <div class="mp-row"><span class="mp-label">Meals</span><span class="mp-value">&#9744; &#9744; &#9744;</span></div>
-                  <div class="mp-row"><span class="mp-label">Movement</span><span class="mp-value">___ minutes</span></div>
-                  <div class="mp-row"><span class="mp-label">Water</span><span class="mp-value">&#9675; &#9675; &#9675; &#9675; &#9675; &#9675;</span></div>
-                  <div class="mp-row"><span class="mp-label">Energy</span><span class="mp-value">1 &middot; 2 &middot; 3 &middot; 4 &middot; 5</span></div>
-                  <div class="mp-row"><span class="mp-label">Win</span><span class="mp-value">_______________</span></div>
-                  <div class="mp-rescue">No weigh-ins &middot; No calorie counting</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="gallery-dots">
-            <span class="gallery-dot active"></span>
-            <span class="gallery-dot"></span>
-            <span class="gallery-dot"></span>
-            <span class="gallery-dot"></span>
-            <span class="gallery-dot"></span>
-          </div>
+        <div class="product-img-wrap">
+          <img src="https://public-files.gumroad.com/u7m8t276s2alz2u08ex49jle91iv" alt="GLOWELLE 21-Day Real-Life Reset - Digital wellness guide for busy moms" width="600" height="750" loading="eager">
         </div>
       </div>
 
       <!-- Hero Text -->
       <div class="reveal">
         <h1 style="font-size:clamp(2rem,4vw,2.8rem)">Glowelle 21-Day Reset</h1>
-        <p class="serif" style="font-size:1.3rem;font-style:italic;color:var(--luxury);margin-top:6px;margin-bottom:20px">The Complete Weight Loss System for Busy Moms</p>
-        <p class="lead" style="max-width:480px;margin-bottom:32px">
+        <p class="serif" style="font-size:1.3rem;font-style:italic;color:var(--luxury);margin-top:6px;margin-bottom:18px">The Complete Weight Loss System for Busy Moms</p>
+        <p class="lead" style="max-width:480px;margin-bottom:28px">
           A realistic, step-by-step system designed to help busy moms lose weight, build healthy habits, and stay consistent &mdash; without restrictive diets or hours you don't have.
         </p>
 
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:32px;flex-wrap:wrap">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:28px;flex-wrap:wrap">
           <a data-gumroad-action="buy" class="btn btn-primary">Start Your Reset Today</a>
           <div style="display:flex;align-items:center;gap:10px">
             <span class="price-strike">$29.99</span>
@@ -780,19 +148,19 @@ details p {
         </div>
         <p style="font-size:.8rem;color:var(--muted)">Limited time offer &middot; One-time payment &middot; Instant access</p>
 
-        <div class="reveal" style="margin-top:18px">
+        <div style="margin-top:16px">
           <div class="pay-label">Secure Payment Methods</div>
           <div class="pay-badges">
             <span style="background:#2E77BC;color:#fff;font-size:.5rem;font-weight:800;padding:4px 7px;letter-spacing:.01em;font-family:Arial,sans-serif;line-height:1.4">AMEX</span>
             <span style="background:#000;color:#fff;font-size:.52rem;font-weight:600;padding:4px 8px;font-family:Arial,sans-serif;line-height:1.4">&#9679; Pay</span>
-            <span style="display:inline-flex;align-items:center;background:#fff;border:1px solid rgba(45,42,38,0.08);padding:4px 8px;gap:3px">
+            <span style="display:inline-flex;align-items:center;background:#fff;border:1px solid rgba(45,42,38,.08);padding:4px 8px;gap:3px">
               <span style="width:10px;height:10px;border-radius:50%;background:#1A1F71;display:inline-block"></span>
               <span style="width:10px;height:10px;border-radius:50%;background:#9BD4EA;margin-left:-5px;opacity:.85;display:inline-block"></span>
               <span style="font-size:.46rem;font-weight:700;color:#5F6368;font-family:Arial,sans-serif;margin-left:2px">Diners</span>
             </span>
             <span style="background:#FF6000;color:#fff;font-size:.46rem;font-weight:800;padding:4px 7px;letter-spacing:.01em;font-family:Arial,sans-serif;line-height:1.4">DISCOVER</span>
-            <span style="background:#fff;border:1px solid rgba(45,42,38,0.08);color:#5F6368;font-size:.5rem;font-weight:700;padding:4px 7px;font-family:Arial,sans-serif;line-height:1.4">G Pay</span>
-            <span style="display:inline-flex;align-items:center;background:#fff;border:1px solid rgba(45,42,38,0.08);padding:4px 7px">
+            <span style="background:#fff;border:1px solid rgba(45,42,38,.08);color:#5F6368;font-size:.5rem;font-weight:700;padding:4px 7px;font-family:Arial,sans-serif;line-height:1.4">G Pay</span>
+            <span style="display:inline-flex;align-items:center;background:#fff;border:1px solid rgba(45,42,38,.08);padding:4px 7px">
               <span style="width:11px;height:11px;border-radius:50%;background:#EB001B;margin-right:-4px;display:inline-block"></span>
               <span style="width:11px;height:11px;border-radius:50%;background:#F79E1B;opacity:.9;display:inline-block"></span>
             </span>
@@ -807,60 +175,60 @@ details p {
 </section>
 
 <!-- TRANSPARENCY TRUST STRIP -->
-<div style="background:var(--bg2);border-top:1px solid rgba(45,42,38,0.06);border-bottom:1px solid rgba(45,42,38,0.06);padding:16px 24px;text-align:center">
+<div style="background:var(--bg2);border-top:1px solid rgba(45,42,38,.06);border-bottom:1px solid rgba(45,42,38,.06);padding:14px 20px;text-align:center">
   <p style="font-size:.82rem;color:var(--muted);max-width:560px;margin:0 auto">No fake reviews. No fake countdowns. No fake numbers &mdash; just a real, transparent system built for a real, busy life.</p>
 </div>
 
 <!-- WHAT'S INSIDE -->
 <section id="whats-inside" style="background:var(--bg2)">
   <div class="wrap">
-    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 56px">
+    <div class="reveal" style="text-align:center;max-width:600px;margin:0 auto 40px">
       <div class="eyebrow">What's Inside</div>
       <h2 style="font-size:clamp(1.8rem,3.5vw,2.6rem)">A complete system &mdash; not just a PDF</h2>
-      <p class="lead" style="margin-top:14px">Every component is built to fit into a real, busy life. Nothing here requires a gym, a chef, or a spare two hours.</p>
+      <p class="lead" style="margin-top:12px">Every component is built to fit into a real, busy life. Nothing here requires a gym, a chef, or a spare two hours.</p>
     </div>
     <div class="grid-3">
       <div class="card reveal">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#174A3A" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 7h8M8 12h5M8 17h8"/></svg>
         </div>
-        <h3 style="font-family:'Inter',sans-serif;font-weight:700;color:var(--text);font-size:1.02rem;letter-spacing:-.01em;margin-bottom:8px">21-Day Plan</h3>
-        <p class="lead" style="font-size:.9rem">A day-by-day roadmap so you always know exactly what today looks like &mdash; zero guesswork.</p>
+        <h3 style="font-family:'Inter',sans-serif;font-weight:700;color:var(--text);font-size:1rem;margin-bottom:8px">21-Day Plan</h3>
+        <p class="lead" style="font-size:.88rem">A day-by-day roadmap so you always know exactly what today looks like &mdash; zero guesswork.</p>
       </div>
       <div class="card reveal">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#174A3A" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M9 12h6M12 9v6"/></svg>
         </div>
-        <h3 style="font-family:'Inter',sans-serif;font-weight:700;color:var(--text);font-size:1.02rem;letter-spacing:-.01em;margin-bottom:8px">Meal Plans</h3>
-        <p class="lead" style="font-size:.9rem">Family-friendly meals under 20 minutes. Real food, no special ingredients required.</p>
+        <h3 style="font-family:'Inter',sans-serif;font-weight:700;color:var(--text);font-size:1rem;margin-bottom:8px">Meal Plans</h3>
+        <p class="lead" style="font-size:.88rem">Family-friendly meals under 20 minutes. Real food, no special ingredients required.</p>
       </div>
       <div class="card reveal">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#174A3A" stroke-width="1.5"><path d="M4 7h16M4 12h10M4 17h14"/><circle cx="20" cy="12" r="2"/></svg>
         </div>
-        <h3 style="font-family:'Inter',sans-serif;font-weight:700;color:var(--text);font-size:1.02rem;letter-spacing:-.01em;margin-bottom:8px">Shopping Lists</h3>
-        <p class="lead" style="font-size:.9rem">Organized by store section so a full week of groceries takes 20 minutes, not two hours.</p>
+        <h3 style="font-family:'Inter',sans-serif;font-weight:700;color:var(--text);font-size:1rem;margin-bottom:8px">Shopping Lists</h3>
+        <p class="lead" style="font-size:.88rem">Organized by store section so a full week of groceries takes 20 minutes, not two hours.</p>
       </div>
       <div class="card reveal">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#174A3A" stroke-width="1.5"><path d="M12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9 9 4.03 9 9"/><path d="M12 7v5l3 3"/><path d="M19 17v4M17 19h4"/></svg>
         </div>
-        <h3 style="font-family:'Inter',sans-serif;font-weight:700;color:var(--text);font-size:1.02rem;letter-spacing:-.01em;margin-bottom:8px">Movement Plans</h3>
-        <p class="lead" style="font-size:.9rem">10&ndash;15 minute home routines. No gym, no equipment, no experience needed.</p>
+        <h3 style="font-family:'Inter',sans-serif;font-weight:700;color:var(--text);font-size:1rem;margin-bottom:8px">Movement Plans</h3>
+        <p class="lead" style="font-size:.88rem">10&ndash;15 minute home routines. No gym, no equipment, no experience needed.</p>
       </div>
       <div class="card reveal">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#174A3A" stroke-width="1.5"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7l2 2 4-4M9 13h6M9 17h4"/></svg>
         </div>
-        <h3 style="font-family:'Inter',sans-serif;font-weight:700;color:var(--text);font-size:1.02rem;letter-spacing:-.01em;margin-bottom:8px">Habit &amp; Daily Tracker</h3>
-        <p class="lead" style="font-size:.9rem">Printable trackers for water, sleep, steps, and meals &mdash; built to make progress visible.</p>
+        <h3 style="font-family:'Inter',sans-serif;font-weight:700;color:var(--text);font-size:1rem;margin-bottom:8px">Habit &amp; Daily Tracker</h3>
+        <p class="lead" style="font-size:.88rem">Printable trackers for water, sleep, steps, and meals &mdash; built to make progress visible.</p>
       </div>
       <div class="card reveal">
         <div class="feature-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="#174A3A" stroke-width="1.5"><path d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><circle cx="9" cy="10" r="1" fill="#174A3A"/><circle cx="15" cy="10" r="1" fill="#174A3A"/></svg>
         </div>
-        <h3 style="font-family:'Inter',sans-serif;font-weight:700;color:var(--text);font-size:1.02rem;letter-spacing:-.01em;margin-bottom:8px">Mindset Reset</h3>
-        <p class="lead" style="font-size:.9rem">A short framework to break the all-or-nothing pattern that derails most weight-loss attempts.</p>
+        <h3 style="font-family:'Inter',sans-serif;font-weight:700;color:var(--text);font-size:1rem;margin-bottom:8px">Mindset Reset</h3>
+        <p class="lead" style="font-size:.88rem">A short framework to break the all-or-nothing pattern that derails most weight-loss attempts.</p>
       </div>
     </div>
   </div>
@@ -869,11 +237,11 @@ details p {
 <!-- BENEFITS -->
 <section>
   <div class="wrap">
-    <div class="grid-2" style="align-items:center;gap:64px">
+    <div class="grid-2" style="align-items:center;gap:48px">
       <div class="reveal">
         <div class="eyebrow">Why It Works</div>
-        <h2 style="font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:24px">Built around your real life, not an idealized one</h2>
-        <div style="display:flex;flex-direction:column;gap:18px">
+        <h2 style="font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:20px">Built around your real life, not an idealized one</h2>
+        <div style="display:flex;flex-direction:column;gap:16px">
           <div class="check-row">
             <div class="dot"></div>
             <p class="lead"><strong style="color:var(--text)">Subtraction over addition.</strong> Small removals that create space &mdash; not more tasks to fail at.</p>
@@ -896,36 +264,18 @@ details p {
   </div>
 </section>
 
-<!-- MARQUEE TICKER -->
-<div class="marquee-wrap">
-  <div class="marquee-track">
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-    <span class="marquee-item">Glowelle 21-Day Reset</span><span class="marquee-item">&#10022;</span>
-  </div>
-</div>
-
 <!-- COMPARISON TABLE -->
 <section style="background:var(--bg2)">
   <div class="wrap" style="max-width:680px">
-    <div class="reveal" style="text-align:center;margin-bottom:40px">
+    <div class="reveal" style="text-align:center;margin-bottom:36px">
       <div class="eyebrow">Why Choose Glowelle</div>
       <h2 style="font-size:clamp(1.7rem,3.2vw,2.3rem)">See the difference for yourself</h2>
     </div>
     <div class="reveal cmp-table">
       <div class="cmp-row cmp-head">
         <div class="cmp-label"></div>
-        <div class="cmp-col cmp-col-us">Glowelle</div>
-        <div class="cmp-col cmp-col-them">OTHER<br>PROGRAMS</div>
+        <div class="cmp-col">Glowelle</div>
+        <div class="cmp-col">OTHER<br>PROGRAMS</div>
       </div>
       <div class="cmp-row">
         <div class="cmp-label">One-Time Payment, No Subscription</div>
@@ -956,19 +306,19 @@ details p {
   </div>
 </section>
 
-<!-- EMOTIONAL CONVERSION SECTION -->
+<!-- EMOTIONAL CONVERSION -->
 <section style="background:var(--bg2)">
   <div class="wrap" style="max-width:680px;text-align:center">
     <div class="reveal">
       <div class="eyebrow">For Every Mom Who's Tried Everything</div>
       <h2 style="font-size:clamp(1.8rem,3.5vw,2.5rem);line-height:1.3">You don't need more willpower.<br>You need a system that finally gets it right.</h2>
-      <p class="lead" style="margin-top:20px;max-width:540px;margin-left:auto;margin-right:auto">
+      <p class="lead" style="margin-top:18px;max-width:540px;margin-left:auto;margin-right:auto">
         You've started before. You know how to try hard. What you haven't had is a plan built around school pickups, dinner chaos, and the five minutes you get to yourself before bed &mdash; until now.
       </p>
-      <p class="serif" style="font-size:1.3rem;font-style:italic;color:var(--luxury);margin-top:28px">
+      <p class="serif" style="font-size:1.3rem;font-style:italic;color:var(--luxury);margin-top:24px">
         "This is the version of you that's been waiting."
       </p>
-      <p class="lead" style="font-size:.82rem;margin-top:24px;max-width:480px;margin-left:auto;margin-right:auto">Built with busy moms in mind &mdash; but made for any woman short on time and done with complicated diets.</p>
+      <p class="lead" style="font-size:.82rem;margin-top:20px;max-width:480px;margin-left:auto;margin-right:auto">Built with busy moms in mind &mdash; but made for any woman short on time and done with complicated diets.</p>
     </div>
   </div>
 </section>
@@ -983,13 +333,13 @@ details p {
       <p class="creator-story">
         "I created Glowelle after years of trying every program out there &mdash; and failing, not because I lacked willpower, but because <strong>nothing was built for a mom's real life.</strong> &#x1f49b;
       </p>
-      <p class="creator-story" style="margin-top:14px">
+      <p class="creator-story" style="margin-top:12px">
         Between school runs, work deadlines, and bedtime chaos, I needed a system that didn't ask me to be someone I'm not. So I built one &mdash; <strong>meal by meal, workout by workout, habit by habit</strong> &mdash; until it finally worked. &#x1f33f;
       </p>
-      <p class="creator-story" style="margin-top:14px">
+      <p class="creator-story" style="margin-top:12px">
         Glowelle is the guide I wish I had on Day 1. If you're a mom who's tried everything and still feels stuck &mdash; <strong>this was made for you.</strong> &#x1f338;"
       </p>
-      <p style="margin-top:22px;font-size:.82rem;color:var(--luxury);font-weight:600">&mdash; Mom of two &middot; Health &amp; Wellness Creator &#x1f49c;</p>
+      <p style="margin-top:20px;font-size:.82rem;color:var(--luxury);font-weight:600">&mdash; Mom of two &middot; Health &amp; Wellness Creator &#x1f49c;</p>
     </div>
   </div>
 </section>
@@ -997,17 +347,17 @@ details p {
 <!-- PRICE / FINAL CTA -->
 <section>
   <div class="wrap" style="max-width:640px;text-align:center">
-    <div class="reveal card" style="padding:48px 36px">
+    <div class="reveal card" style="padding:40px 28px">
       <div class="eyebrow">Today's Price</div>
-      <h2 style="font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:20px">Your 21-Day Reset starts now</h2>
+      <h2 style="font-size:clamp(1.8rem,3.5vw,2.4rem);margin-bottom:18px">Your 21-Day Reset starts now</h2>
       <div style="display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:8px">
         <span class="price-strike" style="font-size:1.3rem">$29.99</span>
         <span class="price-now">$19.98</span>
       </div>
-      <p class="lead" style="font-size:.88rem;margin-bottom:28px">One-time payment &middot; Instant PDF access &middot; Yours to keep</p>
+      <p class="lead" style="font-size:.88rem;margin-bottom:24px">One-time payment &middot; Instant PDF access &middot; Yours to keep</p>
       <a data-gumroad-action="buy" class="btn btn-primary" style="width:100%;padding:18px">Start Your Reset Today</a>
-      <p style="font-size:.78rem;color:var(--muted);margin-top:16px">Secure checkout &middot; Instant delivery</p>
-      <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent2);border-radius:999px;padding:8px 18px;margin-top:18px">
+      <p style="font-size:.78rem;color:var(--muted);margin-top:14px">Secure checkout &middot; Instant delivery</p>
+      <div style="display:inline-flex;align-items:center;gap:8px;background:var(--accent2);border-radius:999px;padding:8px 18px;margin-top:16px">
         <span style="font-size:.95rem">&#x1f6e1;&#xfe0f;</span>
         <span style="font-size:.78rem;font-weight:600;color:var(--text)">30-Day Money-Back Guarantee &mdash; try it risk-free</span>
       </div>
@@ -1018,7 +368,7 @@ details p {
 <!-- FAQ -->
 <section style="background:var(--bg2)">
   <div class="wrap" style="max-width:680px">
-    <div class="reveal" style="text-align:center;margin-bottom:40px">
+    <div class="reveal" style="text-align:center;margin-bottom:36px">
       <div class="eyebrow">FAQ</div>
       <h2 style="font-size:clamp(1.7rem,3.2vw,2.2rem)">Questions, answered</h2>
     </div>
@@ -1043,28 +393,28 @@ details p {
   </div>
 </section>
 
-<!-- CONTACT -->
-<section style="background:var(--bg2);padding:64px 0">
+<!-- JOIN THE CIRCLE -->
+<section style="background:var(--bg2);padding:48px 0">
   <div class="wrap" style="max-width:560px;text-align:center">
     <div class="reveal">
       <h2 style="font-size:clamp(1.5rem,2.8vw,1.9rem);display:flex;align-items:center;justify-content:center;gap:10px">&#x1f338; Join The Glowelle Circle</h2>
-      <p class="lead" style="margin-top:14px">Get exclusive wellness tips, healthy habit guides, special discounts, and free resources designed to help you feel healthier, more confident, and glow from within. &#x1f33f;</p>
-      <div id="circle-form" style="display:flex;justify-content:center;gap:10px;margin-top:24px;flex-wrap:wrap">
-        <input id="circle-email" type="email" placeholder="Email address" style="padding:14px 18px;border-radius:10px;border:1px solid rgba(45,42,38,0.18);font-family:'Inter',sans-serif;font-size:.9rem;min-width:240px;background:#fff;color:var(--text)">
-        <button id="circle-btn" type="button" style="padding:14px 26px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:var(--text);font-weight:700;font-size:.9rem;font-family:'Inter',sans-serif;cursor:pointer">Join the Circle</button>
+      <p class="lead" style="margin-top:12px">Get exclusive wellness tips, healthy habit guides, special discounts, and free resources designed to help you feel healthier, more confident, and glow from within. &#x1f33f;</p>
+      <div id="circle-form" style="display:flex;justify-content:center;gap:10px;margin-top:20px;flex-wrap:wrap">
+        <input id="circle-email" type="email" placeholder="Email address" style="padding:14px 18px;border-radius:10px;border:1px solid rgba(45,42,38,.18);font-family:'Inter',sans-serif;font-size:.9rem;min-width:240px;background:#fff;color:var(--text)">
+        <button id="circle-btn" type="button" style="padding:14px 26px;border-radius:10px;border:1px solid var(--accent);background:var(--accent);color:var(--text);font-weight:700;font-size:.9rem;font-family:'Inter',sans-serif;cursor:pointer;touch-action:manipulation">Join the Circle</button>
       </div>
-      <p id="circle-thanks" style="display:none;margin-top:24px;font-size:1rem;font-weight:600;color:var(--text)">&#x1f338; Thank you for joining &mdash; welcome to the Circle!</p>
+      <p id="circle-thanks" style="display:none;margin-top:20px;font-size:1rem;font-weight:600;color:var(--text)">&#x1f338; Thank you for joining &mdash; welcome to the Circle!</p>
     </div>
   </div>
 </section>
 
 <!-- SOCIAL -->
-<section style="padding:48px 0 56px">
+<section style="padding:40px 0 48px">
   <div class="wrap" style="text-align:center">
     <div class="reveal">
       <div class="eyebrow">Follow Glowelle</div>
-      <p class="lead" style="font-size:.92rem;max-width:420px;margin:0 auto 28px">Join our community for daily tips, motivation, and real wellness content.</p>
-      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap">
+      <p class="lead" style="font-size:.9rem;max-width:420px;margin:0 auto 24px">Join our community for daily tips, motivation, and real wellness content.</p>
+      <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap">
         <a href="https://www.tiktok.com/@glo_welle" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="TikTok">
           <svg viewBox="0 0 20 20" fill="currentColor"><path d="M16.6 5.78A4.07 4.07 0 0113.97 3h-2.8v9.73a2.4 2.4 0 01-2.4 2.15 2.4 2.4 0 01-2.4-2.4 2.4 2.4 0 012.4-2.4c.25 0 .49.04.72.1V7.28a5.2 5.2 0 00-.72-.05 5.2 5.2 0 00-5.2 5.2 5.2 5.2 0 005.2 5.2 5.2 5.2 0 005.2-5.2V8.76A6.84 6.84 0 0017.97 10V7.17a4.07 4.07 0 01-1.37-1.39z"/></svg>
         </a>
