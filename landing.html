@@ -488,3 +488,12 @@ details p{padding:0 0 18px;font-size:.88rem;color:var(--muted);line-height:1.7}
     </div>
   </div>
 </footer>
+
+<script>
+document.getElementById('circle-btn').addEventListener('click',function(){
+  var e=document.getElementById('circle-email');
+  if(!e.value||!e.value.includes('@')){e.focus();return}
+  document.getElementById('circle-form').style.display='none';
+  document.getElementById('circle-thanks').style.display='block';
+});
+</script>
