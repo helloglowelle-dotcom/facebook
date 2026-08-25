@@ -182,6 +182,9 @@ section{padding:48px 0;content-visibility:auto;contain-intrinsic-size:auto 500px
 .ticker-item{display:inline-flex;align-items:center;gap:6px;padding:0 32px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
 .ticker-item .old-price{text-decoration:line-through;opacity:.55;font-weight:400}
 .ticker-item .new-price{color:#DCEADF;font-weight:700}
+.ticker-timer{display:inline-flex;align-items:center;gap:4px;font-variant-numeric:tabular-nums}
+.ticker-timer span{background:rgba(255,255,255,.15);padding:2px 5px;border-radius:3px;font-size:11px;font-weight:700;min-width:22px;text-align:center}
+.ticker-timer .sep{background:none;padding:0;min-width:auto;opacity:.6;font-size:10px}
 .ticker-dot{width:4px;height:4px;border-radius:50%;background:rgba(220,234,223,.4);flex-shrink:0}
 @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 .animated-divider{display:flex;align-items:center;justify-content:center;padding:40px 20px;gap:16px}
@@ -195,7 +198,7 @@ section{padding:48px 0;content-visibility:auto;contain-intrinsic-size:auto 500px
 <!-- TICKER -->
 <div class="ticker-bar">
   <div class="ticker-track">
-    <span class="ticker-item"><span class="old-price">$29.00</span> <span class="new-price">$18.89</span></span><span class="ticker-dot"></span><span class="ticker-item">Limited Time Offer</span><span class="ticker-dot"></span><span class="ticker-item">Only 5 Copies Left</span><span class="ticker-dot"></span><span class="ticker-item"><span class="old-price">$29.00</span> <span class="new-price">$18.89</span></span><span class="ticker-dot"></span><span class="ticker-item">Limited Time Offer</span><span class="ticker-dot"></span><span class="ticker-item">Only 5 Copies Left</span><span class="ticker-dot"></span><span class="ticker-item"><span class="old-price">$29.00</span> <span class="new-price">$18.89</span></span><span class="ticker-dot"></span><span class="ticker-item">Limited Time Offer</span><span class="ticker-dot"></span><span class="ticker-item">Only 5 Copies Left</span><span class="ticker-dot"></span><span class="ticker-item"><span class="old-price">$29.00</span> <span class="new-price">$18.89</span></span><span class="ticker-dot"></span><span class="ticker-item">Limited Time Offer</span><span class="ticker-dot"></span><span class="ticker-item">Only 5 Copies Left</span><span class="ticker-dot"></span>
+    <span class="ticker-item"><span class="old-price">$29.00</span> <span class="new-price">$18.89</span></span><span class="ticker-dot"></span><span class="ticker-item">Limited Time Offer</span><span class="ticker-dot"></span><span class="ticker-item ticker-timer" data-countdown><span class="cd-h">00</span><span class="sep">:</span><span class="cd-m">00</span><span class="sep">:</span><span class="cd-s">00</span></span><span class="ticker-dot"></span><span class="ticker-item">Only 5 Copies Left</span><span class="ticker-dot"></span><span class="ticker-item"><span class="old-price">$29.00</span> <span class="new-price">$18.89</span></span><span class="ticker-dot"></span><span class="ticker-item">Limited Time Offer</span><span class="ticker-dot"></span><span class="ticker-item ticker-timer" data-countdown><span class="cd-h">00</span><span class="sep">:</span><span class="cd-m">00</span><span class="sep">:</span><span class="cd-s">00</span></span><span class="ticker-dot"></span><span class="ticker-item">Only 5 Copies Left</span><span class="ticker-dot"></span><span class="ticker-item"><span class="old-price">$29.00</span> <span class="new-price">$18.89</span></span><span class="ticker-dot"></span><span class="ticker-item">Limited Time Offer</span><span class="ticker-dot"></span><span class="ticker-item ticker-timer" data-countdown><span class="cd-h">00</span><span class="sep">:</span><span class="cd-m">00</span><span class="sep">:</span><span class="cd-s">00</span></span><span class="ticker-dot"></span><span class="ticker-item">Only 5 Copies Left</span><span class="ticker-dot"></span><span class="ticker-item"><span class="old-price">$29.00</span> <span class="new-price">$18.89</span></span><span class="ticker-dot"></span><span class="ticker-item">Limited Time Offer</span><span class="ticker-dot"></span><span class="ticker-item ticker-timer" data-countdown><span class="cd-h">00</span><span class="sep">:</span><span class="cd-m">00</span><span class="sep">:</span><span class="cd-s">00</span></span><span class="ticker-dot"></span><span class="ticker-item">Only 5 Copies Left</span><span class="ticker-dot"></span>
   </div>
 </div>
 
@@ -611,4 +614,25 @@ if(hero&&sticky&&window.IntersectionObserver){
     else{sticky.classList.add('visible')}
   },{threshold:0}).observe(hero);
 }
+(function(){
+  var now=new Date();
+  var end=new Date(now);
+  end.setHours(23,59,59,999);
+  var key='glw_cd_end';
+  try{var s=localStorage.getItem(key);if(s&&parseInt(s)>Date.now()){end=new Date(parseInt(s))}else{localStorage.setItem(key,end.getTime())}}catch(e){}
+  function tick(){
+    var diff=Math.max(0,end.getTime()-Date.now());
+    var h=Math.floor(diff/3600000);
+    var m=Math.floor((diff%3600000)/60000);
+    var s=Math.floor((diff%60000)/1000);
+    var hh=h<10?'0'+h:''+h,mm=m<10?'0'+m:''+m,ss=s<10?'0'+s:''+s;
+    var els=document.querySelectorAll('[data-countdown]');
+    for(var i=0;i<els.length;i++){
+      els[i].querySelector('.cd-h').textContent=hh;
+      els[i].querySelector('.cd-m').textContent=mm;
+      els[i].querySelector('.cd-s').textContent=ss;
+    }
+  }
+  tick();setInterval(tick,1000);
+})();
 </script>
