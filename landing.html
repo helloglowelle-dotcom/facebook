@@ -175,7 +175,23 @@ section{padding:48px 0;content-visibility:auto;contain-intrinsic-size:auto 500px
   .product-img-wrap{max-width:100%;border-radius:10px}
   .product-img-wrap img{border-radius:10px}
 }
+
+/* ============ TICKER BAR ============ */
+.ticker-bar{background:var(--forest);color:var(--white);overflow:hidden;position:relative;height:38px;display:flex;align-items:center}
+.ticker-track{display:flex;align-items:center;white-space:nowrap;animation:tickerScroll 18s linear infinite;gap:0}
+.ticker-item{display:inline-flex;align-items:center;gap:6px;padding:0 32px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.ticker-item .old-price{text-decoration:line-through;opacity:.55;font-weight:400}
+.ticker-item .new-price{color:#DCEADF;font-weight:700}
+.ticker-dot{width:4px;height:4px;border-radius:50%;background:rgba(220,234,223,.4);flex-shrink:0}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 </style>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="old-price">$29.00</span> <span class="new-price">$18.89</span></span><span class="ticker-dot"></span><span class="ticker-item">Limited Time Offer</span><span class="ticker-dot"></span><span class="ticker-item">Only 5 Copies Left</span><span class="ticker-dot"></span><span class="ticker-item"><span class="old-price">$29.00</span> <span class="new-price">$18.89</span></span><span class="ticker-dot"></span><span class="ticker-item">Limited Time Offer</span><span class="ticker-dot"></span><span class="ticker-item">Only 5 Copies Left</span><span class="ticker-dot"></span><span class="ticker-item"><span class="old-price">$29.00</span> <span class="new-price">$18.89</span></span><span class="ticker-dot"></span><span class="ticker-item">Limited Time Offer</span><span class="ticker-dot"></span><span class="ticker-item">Only 5 Copies Left</span><span class="ticker-dot"></span><span class="ticker-item"><span class="old-price">$29.00</span> <span class="new-price">$18.89</span></span><span class="ticker-dot"></span><span class="ticker-item">Limited Time Offer</span><span class="ticker-dot"></span><span class="ticker-item">Only 5 Copies Left</span><span class="ticker-dot"></span>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="hero-section">
