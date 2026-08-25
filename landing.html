@@ -35,8 +35,8 @@ section{padding:48px 0;content-visibility:auto;contain-intrinsic-size:auto 500px
 /* ============ HERO ============ */
 .hero{padding:40px 0 48px;background:linear-gradient(180deg,var(--white) 0%,var(--bg1) 100%);content-visibility:visible;contain-intrinsic-size:none}
 .hero-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:36px;align-items:center}
-.product-img-wrap{border-radius:var(--radius);overflow:hidden}
-.product-img-wrap img{width:100%;height:auto;object-fit:contain}
+.product-img-wrap{border-radius:16px;overflow:hidden;max-width:100%}
+.product-img-wrap img{width:100%;height:auto;object-fit:contain;border-radius:16px}
 .price-now{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:600;color:var(--forest)}
 .price-strike{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--muted);text-decoration:line-through;opacity:.7}
 .pay-label{font-size:.72rem;color:var(--muted);margin-bottom:8px;font-weight:500}
@@ -103,15 +103,13 @@ section{padding:48px 0;content-visibility:auto;contain-intrinsic-size:auto 500px
 .creator-story{font-size:.9rem;color:var(--muted);line-height:1.75;text-align:left;max-width:480px;margin:0 auto}
 
 /* ============ FAQ ============ */
-.faq-item{background:rgba(220,234,223,.28);border:1px solid rgba(79,138,109,.12);border-radius:14px;margin-bottom:10px;overflow:hidden;transition:background .25s,border-color .25s}
-.faq-item:hover{background:rgba(220,234,223,.45);border-color:rgba(79,138,109,.22)}
-.faq-item[open]{background:rgba(220,234,223,.42);border-color:rgba(79,138,109,.2)}
-.faq-item summary{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;cursor:pointer;font-size:.93rem;font-weight:500;color:var(--text);list-style:none;line-height:1.5;touch-action:manipulation}
+.faq-item{background:rgba(220,234,223,.22);border:1px solid rgba(79,138,109,.1);border-radius:16px;margin-bottom:12px;overflow:hidden;transition:background .3s,border-color .3s,box-shadow .3s}
+.faq-item:hover{background:rgba(220,234,223,.38);border-color:rgba(79,138,109,.18);box-shadow:0 2px 12px rgba(23,74,58,.05)}
+.faq-item[open]{background:rgba(220,234,223,.35);border-color:rgba(79,138,109,.18)}
+.faq-item summary{display:block;padding:20px 24px;cursor:pointer;font-size:.95rem;font-weight:600;color:var(--text);list-style:none;line-height:1.5;touch-action:manipulation;letter-spacing:-.01em}
 .faq-item summary::-webkit-details-marker{display:none}
 .faq-item summary:hover{color:var(--forest)}
-.chev{flex-shrink:0;color:var(--glow);font-size:1.1rem;margin-left:16px;transition:transform .25s;width:24px;height:24px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:rgba(79,138,109,.1)}
-.faq-item[open] .chev{transform:rotate(180deg);background:rgba(79,138,109,.18)}
-.faq-item p{padding:0 22px 18px;font-size:.88rem;color:var(--muted);line-height:1.7}
+.faq-item p{padding:0 24px 20px;font-size:.88rem;color:var(--muted);line-height:1.75;margin:0}
 
 /* ============ SOCIAL ============ */
 .social-icon{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--bg1);border:1px solid var(--border);color:var(--forest);text-decoration:none;transition:background .2s,transform .15s}
@@ -140,10 +138,11 @@ section{padding:48px 0;content-visibility:auto;contain-intrinsic-size:auto 500px
   .gw-feature-only .feature-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr;gap:24px}
+  .hero-grid{grid-template-columns:1fr;gap:20px}
   .hero-grid>.reveal:first-child{order:1}
   .hero-grid>.reveal:last-child{order:2}
-  .product-img-wrap{max-width:96%;margin:0 auto}
+  .product-img-wrap{max-width:100%;margin:0 auto;border-radius:12px}
+  .product-img-wrap img{border-radius:12px}
 }
 @media(max-width:768px){
   section{padding:36px 0}
@@ -169,10 +168,12 @@ section{padding:48px 0;content-visibility:auto;contain-intrinsic-size:auto 500px
   .gw-feature-only .feature-copy h3{font-size:24px}
 }
 @media(max-width:600px){
-  .wrap{padding:0 16px}
+  .wrap{padding:0 14px}
+  .hero .wrap{padding:0 10px}
   section{padding:32px 0}
   .cmp-row{grid-template-columns:1.2fr .7fr .8fr;padding:12px 14px;font-size:.8rem}
-  .product-img-wrap{max-width:96%}
+  .product-img-wrap{max-width:100%;border-radius:10px}
+  .product-img-wrap img{border-radius:10px}
 }
 </style>
 
@@ -445,36 +446,28 @@ section{padding:48px 0;content-visibility:auto;contain-intrinsic-size:auto 500px
     </div>
     <div class="reveal">
       <details class="faq-item">
-        <summary>What exactly do I get when I purchase?<span class="chev">&#9662;</span></summary>
+        <summary>What exactly do I get when I purchase?</summary>
         <p>You get the complete GLOWELLE system: a 21-Day Real-Life Reset (the main program), 3 Weekly Grocery Lists, a Busy-Day Rescue guide, a Family &amp; Ingredient Swap Guide, Sunday Prep instructions, a Progress Tracker, a Day 22+ Maintenance Map, and an optional Digital Reset Dashboard on Notion. Everything you need &mdash; nothing extra to figure out.</p>
       </details>
       <details class="faq-item">
-        <summary>How does the system actually work day-to-day?<span class="chev">&#9662;</span></summary>
+        <summary>How does the system actually work day-to-day?</summary>
         <p>Every day follows the same simple shape: open today's plan, follow the meals, movement, and shortcut that fit your day, mark your wins, and you're done. No new rules to learn each week &mdash; just open today, follow today, done.</p>
       </details>
       <details class="faq-item">
-        <summary>What if I miss a day or my plan falls apart?<span class="chev">&#9662;</span></summary>
+        <summary>What if I miss a day or my plan falls apart?</summary>
         <p>Don't start over. The Busy-Day Rescue section gives you a fallback for every scenario &mdash; no time to cook, nothing in the fridge, low-energy day, or family wants takeout. A messy day doesn't erase your progress. You continue from the next useful action.</p>
       </details>
       <details class="faq-item">
-        <summary>Can my family eat the same meals?<span class="chev">&#9662;</span></summary>
+        <summary>Can my family eat the same meals?</summary>
         <p>Yes. Every meal is designed as a family-friendly dinner using standard grocery-store ingredients &mdash; no separate cooking, no special equipment. The Swap Guide helps you adjust quantities for your household or substitute ingredients based on preferences.</p>
       </details>
       <details class="faq-item">
-        <summary>Do I need the Notion Dashboard?<span class="chev">&#9662;</span></summary>
-        <p>No. The main PDF contains the full Reset. The Digital Dashboard is an optional companion for anyone who prefers checking plans and tracking progress digitally. Prefer paper or PDF? Skip Notion completely.</p>
+        <summary>Is this a restrictive diet or intense workout plan?</summary>
+        <p>Neither. GLOWELLE is a structured system built around sustainable habits &mdash; real food, short home movement, and realistic consistency. Each week makes real life easier. It never turns into a harder workout.</p>
       </details>
       <details class="faq-item">
-        <summary>Is this a restrictive diet or intense workout plan?<span class="chev">&#9662;</span></summary>
-        <p>Neither. GLOWELLE is a structured system built around sustainable habits &mdash; real food, short home movement, and realistic consistency. Each week makes real life easier. It never turns into a harder workout. Weight is never the main score.</p>
-      </details>
-      <details class="faq-item">
-        <summary>What happens after Day 21?<span class="chev">&#9662;</span></summary>
-        <p>Day 21 is not the end. The Day 22+ Maintenance Map helps you carry forward exactly what worked &mdash; favorite meals, short movements, grocery defaults, and your Sunday Prep rhythm &mdash; so future weeks need fewer decisions.</p>
-      </details>
-      <details class="faq-item">
-        <summary>How is this delivered?<span class="chev">&#9662;</span></summary>
-        <p>Instant digital download after purchase. Open on any device or print the pages you need. The Notion Dashboard link is included inside the guide &mdash; just duplicate it to your workspace and begin with Day 1.</p>
+        <summary>How is this delivered?</summary>
+        <p>Instant digital download after purchase. Open on any device or print the pages you need. Start with Day 1 whenever you're ready.</p>
       </details>
     </div>
   </div>
