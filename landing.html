@@ -184,6 +184,12 @@ section{padding:48px 0;content-visibility:auto;contain-intrinsic-size:auto 500px
 .ticker-item .new-price{color:#DCEADF;font-weight:700}
 .ticker-dot{width:4px;height:4px;border-radius:50%;background:rgba(220,234,223,.4);flex-shrink:0}
 @keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.animated-divider{display:flex;align-items:center;justify-content:center;padding:40px 20px;gap:16px}
+.animated-divider .line{flex:1;max-width:180px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:linePulse 3s ease-in-out infinite}
+.animated-divider .line.right{animation-delay:1.5s}
+.animated-divider .diamond{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);animation:diamondGlow 3s ease-in-out infinite;flex-shrink:0}
+@keyframes linePulse{0%,100%{opacity:.3;transform:scaleX(.6)}50%{opacity:1;transform:scaleX(1)}}
+@keyframes diamondGlow{0%,100%{opacity:.4;transform:rotate(45deg) scale(.8)}50%{opacity:1;transform:rotate(45deg) scale(1.2)}}
 </style>
 
 <!-- TICKER -->
@@ -367,6 +373,13 @@ section{padding:48px 0;content-visibility:auto;contain-intrinsic-size:auto 500px
     </div>
   </div>
 </section>
+
+<!-- ANIMATED DIVIDER -->
+<div class="animated-divider">
+  <div class="line"></div>
+  <div class="diamond"></div>
+  <div class="line right"></div>
+</div>
 
 <!-- COMPARISON TABLE -->
 <section>
