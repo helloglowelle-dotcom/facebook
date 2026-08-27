@@ -76,17 +76,6 @@ section{padding:48px 0}
 .motivation-strip{background:var(--forest);padding:20px;text-align:center}
 .motivation-strip p{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:var(--sage);letter-spacing:.01em;max-width:500px;margin:0 auto}
 
-/* BEFORE-AFTER */
-.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:640px;margin:28px auto 0}
-.ba-card{border-radius:var(--radius);padding:28px 24px;text-align:center}
-.ba-card.before{background:rgba(107,123,116,.06);border:1px solid rgba(107,123,116,.1)}
-.ba-card.after{background:linear-gradient(145deg,rgba(220,234,223,.3),rgba(79,138,109,.08));border:1px solid rgba(79,138,109,.15)}
-.ba-card h3{font-family:'Inter',sans-serif;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px}
-.ba-card.before h3{color:var(--muted)}
-.ba-card.after h3{color:var(--glow)}
-.ba-card ul{list-style:none;text-align:left;display:flex;flex-direction:column;gap:10px}
-.ba-card li{font-size:.82rem;color:var(--text);line-height:1.6;display:flex;gap:8px;align-items:flex-start}
-
 /* FAQ */
 .faq-item{border-bottom:1px solid var(--border);padding:18px 0}
 .faq-item:last-child{border-bottom:none}
@@ -115,7 +104,6 @@ section{padding:48px 0}
   h1{font-size:1.8rem!important}
   h2{font-size:1.5rem!important}
   .btn{padding:14px 28px;font-size:14px;width:100%}
-  .ba-grid{grid-template-columns:1fr}
   .founder-section{padding:32px 20px}
   .founder-quote{font-size:.84rem}
   body{padding-bottom:72px}
@@ -274,43 +262,6 @@ section{padding:48px 0}
   <div class="line right"></div>
 </div>
 
-<!-- BEFORE / AFTER -->
-<section>
-  <div class="wrap">
-    <div class="reveal" style="text-align:center;margin-bottom:8px">
-      <div class="eyebrow">The Shift</div>
-      <h2 style="font-size:clamp(1.5rem,3vw,2rem)">7 Days From Now</h2>
-    </div>
-    <div class="ba-grid reveal">
-      <div class="ba-card before">
-        <h3>😔 Today</h3>
-        <ul>
-          <li><span style="opacity:.5">✕</span> Skipping meals, then overeating at night</li>
-          <li><span style="opacity:.5">✕</span> Feeling guilty about every food choice</li>
-          <li><span style="opacity:.5">✕</span> Too exhausted to even think about exercise</li>
-          <li><span style="opacity:.5">✕</span> Starting over every Monday</li>
-        </ul>
-      </div>
-      <div class="ba-card after">
-        <h3>✨ After 7 Days</h3>
-        <ul>
-          <li><span style="color:var(--glow)">✓</span> Eating 3 balanced meals that your family enjoys too</li>
-          <li><span style="color:var(--glow)">✓</span> Feeling lighter, more energized, more in control</li>
-          <li><span style="color:var(--glow)">✓</span> Moving your body 10 min/day (and actually enjoying it)</li>
-          <li><span style="color:var(--glow)">✓</span> Building momentum that lasts beyond Day 7</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- DIVIDER -->
-<div class="divider">
-  <div class="line"></div>
-  <div class="diamond"></div>
-  <div class="line right"></div>
-</div>
-
 <!-- HOW IT WORKS -->
 <section>
   <div class="wrap" style="max-width:640px">
@@ -437,14 +388,6 @@ section{padding:48px 0}
 <div style="background:var(--forest);padding:32px 20px;text-align:center">
   <p style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.3rem;font-weight:500;color:var(--sage);letter-spacing:.02em;margin-bottom:4px">GLOWELLE</p>
   <p style="font-size:.72rem;color:rgba(220,234,223,.6);letter-spacing:.02em">Wellness designed for real life</p>
-  <div style="display:flex;justify-content:center;gap:20px;margin-top:16px">
-    <a href="https://www.instagram.com/myglowelle" target="_blank" style="color:var(--sage);text-decoration:none;opacity:.7;transition:opacity .2s" aria-label="Instagram">
-      <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-    </a>
-    <a href="https://www.tiktok.com/@myglowelle" target="_blank" style="color:var(--sage);text-decoration:none;opacity:.7;transition:opacity .2s" aria-label="TikTok">
-      <svg viewBox="0 0 24 24" fill="currentColor" style="width:20px;height:20px"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.87a8.16 8.16 0 004.77 1.52V7a4.84 4.84 0 01-1.01-.31z"/></svg>
-    </a>
-  </div>
 </div>
 
 <!-- STICKY MOBILE CTA -->
